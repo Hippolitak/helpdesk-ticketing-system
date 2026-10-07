@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HelpDesk</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h2>Register</h2>
+
+    <form id="registerForm">
+        <label>Username</label>
+        <input type="text" id="regUsername" required placeholder="Enter a username">
+
+        <label>Password</label>
+        <input type="text" id="regPassword" required placeholder="Enter a password">
+
+        <label>Role Select</label>
+        <select id="regRole">
+                <option value="user">User</option>
+                <option value="admin">Admin</option>
+        </select>
+    </form>
+    
+    <p> Already have an account? <a href="login.html">Login</a></p>
+
+    <script src="js/auth.js"></script>
+</body>
+</html>
