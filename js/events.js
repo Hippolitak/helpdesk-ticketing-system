@@ -1,37 +1,68 @@
-// Event Driven Progamming (assitance with openAi)
+// Authentication 
 
-// Helper: Read cookies
-function getCookie(name) {
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) return parts.pop().split(";").shift();
+// Load users from localStorage
+function loadUsers() {
+    return JSON.parse(localStorage.getItem("users")) || [];
 }
 
-// Page load event 
+// Save users to localStorage
+function saveUsers(users) {
+    localStorage.setItem("users", JSON.stringify(users));
+}
 
-document.addEventListener("DOMContentLoaded", () => {
-    console.log("Page loaded and DOM ready");
+// Register
 
-    const username = getCookie("loggedInUser");
-    const role = getCookie("userRole");
+const registerForm = document.getElementById("registerForm");
 
-    // If logged in, show identity in console (Event-driven)
-    if (username) {
-        console.log(`Logged in as: ${username} (${role})`);
-    }
-});
+if (registerForm) {
+    registerForm.addEventListener("submit", (event) => {
+        event.preventDefault();
 
-// Logout event 
+        const username = document.getElementById("regUsername").value;
+        const password = document.getElementById("regPassword").value;
+        const role = document.getElementById("regRole").value;
 
-const logoutBtn = document.getElementById("logoutBtn");
+        let users = loadUsers();
 
-if (logoutBtn) {
-    logoutBtn.addEventListener("click", () => {
-        // Clear cookies
-        document.cookie = "loggedInUser=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-        document.cookie = "userRole=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        // Check if user exists
+        if (users.some(u => u.username === username)) {
+            alert("Username already exists");
+            return;
+        }
 
-        alert("You have been logged out");
+        // Add new user
+        users.push({ username, password, role });
+        saveUsers(users);
+
+        alert("Registration successful!");
         window.location.href = "login.html";
+    });
+}
+
+// Login
+
+const loginForm = document.getElementById("loginForm");
+
+if (loginForm) {
+    loginForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const username = document.getElementById("loginUsername").value;
+        const password = document.getElementById("loginPassword").value;
+
+        let users = loadUsers();
+
+        const user = users.find(u => u.username === username && u.password === password);
+
+        if (!user) {
+            alert("Invalid username or password");
+            return;
+        }
+
+        // Set cookies
+        document.cookie = `loggedInUser=${user.username}; path=/;`;
+        document.cookie = `userRole=${user.role}; path=/;`;
+
+        window.location.href = "dashboard.html";
     });
 }
