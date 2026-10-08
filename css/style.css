@@ -76,28 +76,36 @@ button:hover {
 
 table {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0;
     margin-top: 20px;
-}
-
-th, td {
-    padding: 12px;
-    border: 1px solid #ddd;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
 th {
     background: #0078ff;
     color: white;
+    padding: 14px;
+    text-align: left;
 }
 
-tr:nth-child(even) {
-    background: #f9f9f9;
+td {
+    padding: 14px;
+    border-bottom: 1px solid #eee;
+}
+
+tr:hover td {
+    background: #f5faff;
 }
 
 /* Container */
 .container {
-    max-width: 600px;
-    margin: 0 auto;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
 }
 
 /* Link buttons */
@@ -115,21 +123,78 @@ tr:nth-child(even) {
     background: #005fcc;
 }
 
-/* NAVBAR */
+/* Navbar */
 
 .navbar {
     background: #0078ff;
-    padding: 10px 20px;
+    padding: 12px 25px;
     display: flex;
-    gap: 20px;
+    gap: 25px;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 
 .navbar a {
     color: white;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 600;
+    font-size: 16px;
+    transition: opacity 0.2s ease;
 }
 
 .navbar a:hover {
-    text-decoration: underline;
+    opacity: 0.7;
 }
+
+/* Card UI */
+
+.card {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    margin: 20px 0;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+.card h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+button, .btn {
+    display: inline-block;
+    padding: 12px 18px;
+    background: linear-gradient(135deg, #0078ff, #005fcc);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s ease, transform 0.15s ease;
+}
+
+button:hover, .btn:hover {
+    background: linear-gradient(135deg, #005fcc, #004bb5);
+    transform: translateY(-2px);
+}
+
+input, textarea {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 15px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus, textarea:focus {
+    border-color: #0078ff;
+    box-shadow: 0 0 5px rgba(0,120,255,0.4);
+    outline: none;
+}
+
