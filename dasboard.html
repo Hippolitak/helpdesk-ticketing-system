@@ -6,24 +6,25 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <div class="container"
+        <h2>Dashboard</h2>
 
-    <h2>Dashboard</h2>
+        <p id="welcomeText"></p>
+        <p id="roleText"></p>
+        <div id="apiData"></div>
 
-    <p id="welcomeText"></p>
-    <p id="roleText"></p>
-    <div id="apiData"></div>
+        <div id="adminPanel" style="display:none;">
+            <h3>Admin Panel</h3>
+            <a href="tickets.html" class="btn">View All Tickets</a>
+        </div>
 
-    <div id="adminPanel" style="display:none;">
-        <h3>Admin Panel</h3>
-        <a href="tickets.html">View All Tickets</a>
+        <div id="userPanel" style="display:none;">
+            <h3>User Panel</h3>
+            <a href="tickets.html" class="btn">Create a Ticket</a>
+        </div>
+
+        <button id="logoutBtn">Logout</button>
     </div>
-
-    <div id="userPanel" style="display:none;">
-        <h3>User Panel</h3>
-        <a href="tickets.html">Create a Ticket</a>
-    </div>
-
-    <button id="logoutBtn">Logout</button>
 
     <script>
         // Read Cookies (assistance with openAi)

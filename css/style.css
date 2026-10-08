@@ -93,3 +93,24 @@ th {
 tr:nth-child(even) {
     background: #f9f9f9;
 }
+
+/* Container */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Link buttons */
+.btn {
+    display: inline-block;
+    padding: 10px 15px;
+    background: #0078ff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    background: #005fcc;
+}
