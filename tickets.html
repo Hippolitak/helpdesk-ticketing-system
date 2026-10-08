@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Helpdesk System</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h2>Tickets</h2>
+
+    <p id="welcomeText"></p>
+    <p id="roleText"></p>
+
+    // Create Ticket
+    <div id="userCreateTicket" style="display:none;">
+        <h3>Create a Ticket</h3>
+
+        <form id="ticketForm">
+            <label>Issue</label>
+            <input type="text" id="ticketTitle" required>
+
+            <label>Description</label>
+            <textarea id="ticketDescription" required></textarea>
+
+            <button type="submit">Submit Ticket</button>
+        </form>
+    </div>
+
+    // Admin: View Tickets
+    <div id="adminViewTickets" style="display:none;">
+        <h3>All Tickets</h3>
+        <table border="1" id="ticketsTable">
+            <thead>
+                <tr>
+                    <th>User</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <script src="js/tickets.js"></script>
+</body>
+</html>
