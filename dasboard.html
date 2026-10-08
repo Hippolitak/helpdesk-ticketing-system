@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Helpdesk System</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <h2>Dashboard</h2>
+
+    <p id="welcomeText"></p>
+    <p id="roleText"></p>
+
+    <div id="adminPanel" style="display:none;">
+        <h3>Admin Panel</h3>
+        <a href="tickets.html">View All Tickets</a>
+    </div>
+
+    <div id="userPanel" style="display:none;">
+        <h3>User Panel</h3>
+        <a href="tickets.html">Create a Ticket</a>
+    </div>
+
+    <script>
+        // Read Cookies (assistance with openAi)
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(";").shift();
+        }
+
+        const username = getCookie("loggedInUser");
+        const role = getCookie("userRole");
+
+        // If not logged in, redirect
+        if (!username) {
+            window.location.href = "login.html";
+        }
+
+        // Display identity
+        document.getElementById("welcomeText").innerText = `Welcome, ${username}`;
+        document.getElementById("roleText").innerText = `Role: ${role}`;
+
+        // Show correct panel
+        if (role === "admin") {
+            document.getElementById("adminPanel").style.display = "block";
+        } else {
+            document.getElementById("userPanel").style.display = "block";
+        }
+    </script>
+
+</body>
+</html>
