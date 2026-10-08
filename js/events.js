@@ -35,3 +35,13 @@ if (logoutBtn) {
         window.location.href = "login.html";
     });
 }
+
+const logoutBtnNav = document.getElementById("logoutBtnNav");
+
+if (logoutBtnNav) {
+    logoutBtnNav.addEventListener("click", () => {
+        document.cookie = "loggedInUser=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        document.cookie = "userRole=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        window.location.href = "login.html";
+    });
+}
